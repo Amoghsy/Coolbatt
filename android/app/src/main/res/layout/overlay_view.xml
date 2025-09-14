@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/overlay_root"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="@drawable/overlay_bg"
+    android:elevation="16dp"
+    android:clipToPadding="false">
+
+    <!-- Header Row -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:id="@+id/overlay_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="📞 Incoming Call"
+            android:textColor="#FFFFFFFF"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/overlay_close"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@android:drawable/ic_menu_close_clear_cancel"
+            app:tint="#FFFFFFFF" />
+    </LinearLayout>
+
+    <!-- Battery + Temp Block -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="12dp"
+        android:gravity="center_vertical">
+
+        <!-- Call Icon -->
+        <ImageView
+            android:id="@+id/overlay_call_icon"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:src="@android:drawable/ic_menu_call"
+            app:tint="#FFFFA500"
+            android:layout_marginEnd="12dp" />
+
+        <!-- Battery + Temp Details -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/overlay_battery"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Battery Level: --%"
+                android:textColor="#FFFFFFFF"
+                android:textSize="14sp"
+                android:layout_marginBottom="4dp" />
+
+            <TextView
+                android:id="@+id/overlay_temp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Phone Temperature: --°C"
+                android:textColor="#FFFFFFFF"
+                android:textSize="14sp" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- Suitability -->
+    <TextView
+        android:id="@+id/overlay_suitability"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="✅ Phone is in optimal condition"
+        android:textColor="#00FF00"
+        android:textSize="13sp"
+        android:layout_marginTop="10dp" />
+
+    <!-- Footer -->
+    <TextView
+        android:id="@+id/overlay_footer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Powered by Coolbatt"
+        android:textSize="11sp"
+        android:textColor="#AAAAAA"
+        android:gravity="end"
+        android:layout_marginTop="10dp" />
+</LinearLayout>
