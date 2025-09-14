@@ -12,27 +12,35 @@ export default function TabLayout() {
         tabBarStyle: { backgroundColor: theme.colors.background },
         headerStyle: { backgroundColor: theme.colors.background },
         headerTitleStyle: { color: theme.colors.text },
+        tabBarActiveTintColor: theme.colors.text,    // 👈 dynamic
+        tabBarInactiveTintColor: theme.colors.grey,  // 👈 dynamic
       }}
     >
       <Tabs.Screen
         name="index"
         options={{
           title: "Dashboard",
-          tabBarIcon: ({ color }) => <FAIcons size={28} name="home" color={color} />,
+          tabBarIcon: ({ color }) => (
+            <FAIcons size={28} name="home" color={color} />
+          ),
         }}
       />
       <Tabs.Screen
         name="stats"
         options={{
           title: "Stats",
-          tabBarIcon: ({ color }) => <FAIcons size={28} name="bar-chart" color={color} />,
+          tabBarIcon: ({ color }) => (
+            <FAIcons size={28} name="bar-chart" color={color} />
+          ),
         }}
       />
       <Tabs.Screen
         name="settings"
         options={{
           title: "Settings",
-          tabBarIcon: ({ color }) => <FAIcons size={28} name="gear" color={color} />,
+          tabBarIcon: ({ color }) => (
+            <FAIcons size={28} name="gear" color={color} />
+          ),
         }}
       />
     </Tabs>

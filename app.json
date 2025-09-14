@@ -12,6 +12,7 @@
       "supportsTablet": true
     },
     "android": {
+      "googleServicesFile": "./android/app/google-services.json",
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/icon.png",
         "backgroundColor": "#ffffff"
@@ -39,6 +40,7 @@
           "backgroundColor": "#ffffff"
         }
       ],
+      
       "expo-sqlite"
     ],
     "experiments": {

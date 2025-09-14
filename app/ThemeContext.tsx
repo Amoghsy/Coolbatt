@@ -9,9 +9,9 @@ export const ThemeProvider = ({ children }: { children: ReactNode }) => {
   const theme = {
     darkMode,
     colors: {
-      background: darkMode ? "#1A1818" : "#fff",
+      background: darkMode ? "#022232ff" : "#fff",
       text: darkMode ? "#fff" : "#000",
-      card: darkMode ? "#242333" : "#f2f2f2",
+      card: darkMode ? "#0B3145" : "#f2f2f2",
       toggleActive: "#4CAF50",
       toggleInactive: "#ccc",
       green: darkMode ? "#4CAF50" : "#008000",
