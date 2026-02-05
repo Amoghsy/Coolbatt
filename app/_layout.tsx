@@ -1,4 +1,3 @@
-// app/layout.tsx
 import { Stack } from "expo-router";
 import { useEffect, useRef, useState } from "react";
 import {
