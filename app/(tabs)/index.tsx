@@ -12,6 +12,8 @@ import {
   View,
   TouchableOpacity,
   StyleSheet,
+  Alert,
+  Button,
 } from "react-native";
 import FontAwesome from "@expo/vector-icons/FontAwesome";
 import DeviceInfo from "react-native-device-info";
@@ -23,6 +25,8 @@ import BatteryCharging from "@/components/BatteryCharging";
 import { VERCELSERVER_URL } from '../config/server';
 import { ThemeContext } from "../ThemeContext";
 import * as IntentLauncher from "expo-intent-launcher";
+import crashlytics from '@react-native-firebase/crashlytics';
+
 const { BatteryModule } = NativeModules;
 const BATTERY_TASK = "BATTERY_TASK";
 
@@ -230,7 +234,32 @@ try {
       console.log("Device info error:", e);
     }
   };
+useEffect(() => {
+    const setupFirebase = async () => {
+      try {
+        // Get FCM token
+        const token = await messaging().getToken();
+        console.log('FCM Token:', token);
 
+        // Link FCM token with Crashlytics user
+        await crashlytics().setUserId(token);
+        await crashlytics().setAttribute('fcm_token', token);
+
+        // Add custom key/value
+        await crashlytics().setAttribute('app_mode', 'production');
+       
+       
+        // Log a message
+        await crashlytics().log('Error  Found!.');
+      } catch (error) {
+        console.error('Error setting up Firebase:', error);
+        crashlytics().recordError(error as Error);
+      }
+    };
+
+    setupFirebase();
+  }, []);
+  
   useEffect(() => {
     fetchDeviceInfo();
     const interval = setInterval(fetchDeviceInfo, 5000);
@@ -408,6 +437,7 @@ try {
             <Text style={[styles.statValue, { color: theme.colors.green }]}>{deviceInfo.ipAddress || "Not connected"}</Text>
           </Text>
         </View>
+        
       </ScrollView>
 
       
